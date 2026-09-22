@@ -1,0 +1,4450 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #000000;
+
+    /* Accent Colors */
+    --orange: #C96845;
+    --blue: #4A9EAF;
+    --yellow: #D6A653;
+    --deep-blue: #3D477D;
+    --red: #A94C40;
+    --purple: #705BA8;
+    --teal: #35666B;
+
+    /* Neutrals */
+    --white: #FFFFFF;
+    --off-white: #F5F3EE;
+    --soft-gray: #E8E8E8;
+    --gray: #D6D6D6;
+
+    /* Fonts */
+    --font-display: "Archivo Black", sans-serif;
+    --font-body: "Barlow Condensed", sans-serif;
+}
+
+
+/* =========================================================
+   DARK / LIGHT MODE TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+
+    margin-left: 24px;
+}
+
+.theme-toggle button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    background: transparent;
+    color: var(--off-white);
+
+    font-family: var(--font-body);
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.theme-toggle button:hover {
+    background-color: var(--off-white);
+    color: var(--black);
+
+    border-color: var(--off-white);
+
+    transform: rotate(15deg);
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode {
+    --black: #F5F3EE;
+    --white: #111111;
+    --off-white: #F5F3EE;
+    --soft-gray: #252525;
+    --gray: #444444;
+
+    background-color: var(--white);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   DARK MODE — GENERAL SECTIONS
+   ========================================================= */
+
+body.dark-mode section {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   DARK MODE — SECTION GRADIENTS
+   ========================================================= */
+
+body.dark-mode #about,
+body.dark-mode #background,
+body.dark-mode #skills,
+body.dark-mode #certifications,
+body.dark-mode #contact {
+    background:
+        linear-gradient(
+            to bottom,
+            #2A2A2A 0px,
+            #1C1C1C 12px,
+            #151515 30px,
+            var(--white) 65px
+        );
+}
+
+
+/* =========================================================
+   DARK MODE — HOME
+   ========================================================= */
+
+body.dark-mode #home {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   DARK MODE — HEADINGS
+   ========================================================= */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: var(--black);
+}
+
+
+/* =========================================================
+   DARK MODE — ABOUT CARDS
+   ========================================================= */
+
+body.dark-mode .about-card {
+    background-color: #181818;
+    border-color: #333333;
+
+    box-shadow:
+        0 0 28px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   DARK MODE — SKILL CARDS
+   ========================================================= */
+
+body.dark-mode .skill-pop {
+    background-color: rgba(24, 24, 24, 0.95);
+    border-color: #333333;
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   DARK MODE — FOOTER
+   ========================================================= */
+
+body.dark-mode footer {
+    background-color: #000000;
+    color: var(--off-white);
+}
+
+
+/* =========================================================
+   HEADER / NAVIGATION
+   Keep the original black header
+   ========================================================= */
+
+body.dark-mode nav {
+    background-color: #000000;
+    color: #F5F3EE;
+}
+
+
+/* -------------------------
+   Logo
+   ------------------------- */
+
+body.dark-mode nav .logo img {
+    filter: none;
+}
+
+
+/* -------------------------
+   Navigation Links
+   ------------------------- */
+
+body.dark-mode .nav-links a {
+    color: #F5F3EE;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: var(--orange);
+}
+
+
+/* -------------------------
+   Social Icons
+   ------------------------- */
+
+body.dark-mode .social-links img {
+    filter: none;
+}
+
+
+/* =========================================================
+   DARK MODE — THEME BUTTON
+   ========================================================= */
+
+body.dark-mode .theme-toggle button {
+    color: #F5F3EE;
+
+    border-color:
+        rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   SMOOTH THEME TRANSITION
+   ========================================================= */
+
+body,
+section,
+.about-card,
+.skill-pop {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.25;
+
+    background-color: var(--white);
+    color: var(--black);
+
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+/* =========================================================
+   GLOBAL DARK MODE TRANSITIONS
+   ========================================================= */
+
+section,
+.about-card,
+.skill-pop {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+/* =========================================================
+   FIXED NAVIGATION
+   ========================================================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 18px 90px;
+
+    background-color: var(--black);
+    color: var(--off-white);
+
+    z-index: 1000;
+}
+
+
+/* -------------------------
+   Logo
+   ------------------------- */
+
+nav .logo {
+    display: flex;
+    align-items: center;
+
+    margin-right: auto;
+}
+
+nav .logo img {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+}
+
+
+/* -------------------------
+   Navigation Links
+   ------------------------- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: var(--off-white);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+
+/* -------------------------
+   Social Links
+   ------------------------- */
+
+.social-links {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-left: 50px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+}
+
+.social-links img {
+    width: 27px;
+    height: 27px;
+
+    object-fit: contain;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HOME / HERO
+   ========================================================= */
+
+/*
+   The home stays visually fixed while the rest
+   of the page scrolls over it.
+*/
+
+#home {
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden;
+
+    background-color: var(--white);
+    color: var(--black);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+
+    padding: 75px 7vw 45px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+    position: absolute;
+
+    left: 7vw;
+    top: 46%;
+
+    width: min(850px, 62vw);
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+}
+
+
+/* -------------------------
+   Eyebrow
+   ------------------------- */
+
+.hero-eyebrow {
+    margin-bottom: 20px;
+
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    opacity: 0.75;
+}
+
+
+/* -------------------------
+   Main Name
+   ------------------------- */
+
+.hero-content h1 {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 10.5vw, 10.5rem);
+
+    line-height: 0.78;
+    letter-spacing: -0.075em;
+
+    color: var(--black);
+
+    transition: transform 0.45s ease;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    margin-left: 8vw;
+
+    color: var(--orange);
+}
+
+.hero:hover .hero-content h1 {
+    transform: translateX(5px);
+}
+
+
+/* -------------------------
+   Hero Description
+   ------------------------- */
+
+.hero-description {
+    max-width: 390px;
+
+    margin-top: 34px;
+    margin-left: 8vw;
+
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+
+    line-height: 1.15;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   HERO PORTRAIT
+   ========================================================= */
+
+.hero-portrait {
+    position: absolute;
+
+    right: 9vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: min(36vw, 520px);
+    height: min(36vw, 520px);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+
+    background-color: var(--white);
+
+    overflow: hidden;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PORTRAIT IMAGE
+   ========================================================= */
+
+.hero-portrait img {
+    position: absolute;
+
+    left: 47%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 110%;
+    height: 110%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    display: block;
+
+    mask-image: none;
+    -webkit-mask-image: none;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* -------------------------
+   Portrait Hover
+   ------------------------- */
+
+.hero-portrait:hover img {
+    transform: translateX(-50%) scale(1.025);
+}
+
+
+/* =========================================================
+   TOP HERO LABEL
+   ========================================================= */
+
+.hero-label {
+    position: absolute;
+
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-body);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+}
+
+.hero-label-top {
+    top: 42px;
+    left: 7vw;
+
+    gap: 18px;
+}
+
+.hero-label-top span:first-child {
+    color: var(--orange);
+}
+
+.hero-label-top span:last-child {
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   SIDE LABEL
+   ========================================================= */
+
+.hero-label-side {
+    left: 2.5vw;
+    top: 48%;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+
+    transform: rotate(-90deg);
+    transform-origin: left top;
+
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   HERO NOTE
+   ========================================================= */
+
+.hero-note {
+    position: absolute;
+
+    right: 7vw;
+    top: 27%;
+
+    z-index: 8;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font-body);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+
+    transform: rotate(5deg);
+}
+
+.hero-note span:last-child {
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   HERO BOTTOM
+   ========================================================= */
+
+.hero-bottom {
+    position: absolute;
+
+    left: 7vw;
+    right: 7vw;
+    bottom: 35px;
+
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--line);
+
+    font-family: var(--font-body);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   DECORATIVE HERO STARS
+   ========================================================= */
+
+.hero-star {
+    position: absolute;
+
+    z-index: 7;
+
+    font-size: 1.5rem;
+
+    color: var(--orange);
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.3s ease;
+}
+
+.hero-star-one {
+    left: 46%;
+    top: 21%;
+}
+
+.hero-star-two {
+    right: 9%;
+    top: 17%;
+
+    font-size: 1.8rem;
+}
+
+.hero-star-three {
+    right: 42%;
+    bottom: 15%;
+
+    font-size: 1rem;
+}
+
+
+/* -------------------------
+   Star Hover
+   ------------------------- */
+
+.hero:hover .hero-star-one {
+    transform: translateY(-7px) rotate(20deg);
+}
+
+.hero:hover .hero-star-two {
+    transform: translateY(8px) rotate(-20deg);
+}
+
+.hero:hover .hero-star-three {
+    transform: translateY(-5px) rotate(15deg);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hero-portrait {
+        right: 7vw;
+
+        width: min(38vw, 430px);
+        height: min(38vw, 430px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 75px 6vw 40px;
+    }
+
+    .hero-portrait {
+        position: relative;
+
+        right: auto;
+        top: auto;
+
+        transform: none;
+
+        width: 72vw;
+        height: 72vw;
+
+        margin: 50px auto 0;
+    }
+
+    .hero-portrait img {
+        width: 88%;
+        height: 88%;
+    }
+
+}
+
+/* =========================================================
+   HOME → NEXT SECTION OVERLAP
+   ========================================================= */
+
+main {
+    position: relative;
+
+    z-index: 2;
+
+    background-color: var(--white);
+}
+
+/* -------------------------
+   Navigation Links
+   ------------------------- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: var(--off-white);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+
+/* -------------------------
+   Social Links
+   ------------------------- */
+
+.social-links {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-left: 50px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+}
+
+.social-links img {
+    width: 27px;
+    height: 27px;
+
+    object-fit: contain;
+
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+   ========================================================= */
+
+section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 110px 7vw;
+
+    background-color: var(--white);
+}
+
+
+/* =========================================================
+   SUBTLE SECTION SEPARATION
+   ========================================================= */
+
+#about,
+#background,
+#skills,
+#certifications,
+#contact {
+    background:
+        linear-gradient(
+            to bottom,
+            #DADADA 0px,
+            #EEEEEE 12px,
+            #F8F8F8 30px,
+            var(--white) 65px
+        );
+
+    background-color: var(--white);
+}
+
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+#home {
+    min-height: 100vh;
+
+    padding-top: 100px;
+
+    background-color: var(--white);
+    color: var(--black);
+}
+
+#home h1 {
+    font-family: var(--font-display);
+
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+
+    line-height: 0.85;
+    letter-spacing: -0.07em;
+
+    color: var(--black);
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+#about {
+    min-height: 100vh;
+
+    color: var(--black);
+
+    padding-top: 115px;
+    padding-bottom: 90px;
+}
+
+
+/* -------------------------
+   About Intro
+   ------------------------- */
+
+.about-intro {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.section-label {
+    margin-bottom: 14px;
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+.about-intro h2 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+
+    margin-bottom: 22px;
+}
+
+.about-statement {
+    max-width: 600px;
+
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.15;
+}
+
+.about-statement span {
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   ABOUT CAROUSEL
+   ========================================================= */
+
+.about-carousel-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+.about-carousel {
+    display: flex;
+
+    gap: 28px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    padding: 20px 15px 35px 15px;
+
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+
+    cursor: grab;
+
+    scrollbar-width: none;
+}
+
+.about-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.about-carousel:active {
+    cursor: grabbing;
+}
+
+
+/* =========================================================
+   ABOUT CARDS
+   ========================================================= */
+
+.about-card {
+    position: relative;
+
+    flex: 0 0 min(560px, 68vw);
+
+    min-height: 440px;
+
+    padding: 38px;
+
+    border: 1px solid #DDDDDD;
+
+    background-color: var(--white);
+
+    scroll-snap-align: start;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+
+    /*
+       Very soft fade around ALL four edges.
+       No directional shadow.
+    */
+    box-shadow:
+        0 0 28px rgba(0, 0, 0, 0.055);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+   ========================================================= */
+
+.card-number {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+
+    letter-spacing: -0.02em;
+
+    margin-bottom: auto;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.card-content {
+    max-width: 450px;
+}
+
+.card-label {
+    margin-bottom: 14px;
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   CARD HEADING
+   ========================================================= */
+
+.about-card h3 {
+    font-size: clamp(2.25rem, 4vw, 3.7rem);
+
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+
+    margin-bottom: 22px;
+}
+
+.about-card h3 span {
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   CARD PARAGRAPH
+   ========================================================= */
+
+.about-card .card-content > p {
+    max-width: 420px;
+
+    font-size: 1.1rem;
+    line-height: 1.2;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   CARD TAGS
+   ========================================================= */
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.card-tags span {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border: 1px solid var(--black);
+
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   CARD 01
+   ========================================================= */
+
+.about-card-tech:hover {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+.about-card-tech:hover .card-tags span {
+    border-color: var(--off-white);
+}
+
+.about-card-tech:hover h3 span {
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   CARD 02
+   ========================================================= */
+
+.about-card-creative:hover {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+.about-card-creative:hover .card-tags span {
+    border-color: var(--off-white);
+}
+
+.about-card-creative:hover h3 span {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   CARD 03
+   ========================================================= */
+
+.about-card-personal:hover {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+
+/* =========================================================
+   CARD 04
+   ========================================================= */
+
+.about-card-random:hover {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+.about-card-random:hover h3 span {
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   PERSONAL LIST
+   ========================================================= */
+
+.personal-list {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 28px;
+}
+
+.personal-item {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 11px 0;
+
+    border-top: 1px solid var(--black);
+}
+
+.about-card-personal:hover .personal-item {
+    border-color: var(--off-white);
+}
+
+.personal-item:last-child {
+    border-bottom: 1px solid var(--black);
+}
+
+.about-card-personal:hover .personal-item:last-child {
+    border-color: var(--off-white);
+}
+
+.personal-item span {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.personal-item strong {
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   RANDOM FACTS
+   ========================================================= */
+
+.random-facts {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 28px;
+}
+
+.random-facts span {
+    padding: 8px 11px;
+
+    border: 1px solid var(--black);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.about-card-random:hover .random-facts span {
+    border-color: var(--off-white);
+}
+
+.random-note {
+    margin-top: 28px;
+
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+}
+
+.random-subtext {
+    margin-top: 7px;
+
+    font-size: 0.95rem;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   CAROUSEL HINT
+   ========================================================= */
+
+.carousel-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    margin-top: 18px;
+}
+
+.carousel-hint span {
+    font-size: 1.1rem;
+}
+
+.carousel-hint p {
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+#background {
+    position: relative;
+
+    min-height: 100vh;
+
+    color: var(--black);
+
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND INTRO
+   ========================================================= */
+
+.background-intro {
+    max-width: 700px;
+
+    margin-bottom: 80px;
+}
+
+.background-intro h2 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.background-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   COLUMN LABELS
+   ========================================================= */
+
+.background-label {
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--black);
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* Small orange line underneath the label */
+
+.background-label::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 42px;
+    height: 2px;
+
+    background-color: var(--orange);
+}
+
+
+/* =========================================================
+   BACKGROUND ITEMS
+   ========================================================= */
+
+.background-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 42px minmax(0, 1fr) 70px;
+
+    column-gap: 20px;
+
+    min-height: 190px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #DCDCDC;
+
+    transition:
+        padding-left 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+/* =========================================================
+   ORANGE HOVER ACCENT
+   ========================================================= */
+
+.background-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -14px;
+    top: 0;
+
+    width: 3px;
+    height: 0;
+
+    background-color: var(--orange);
+
+    transition:
+        height 0.3s ease;
+}
+
+
+/* Accent grows when item is hovered */
+
+.background-item:hover::before {
+    height: 100%;
+}
+
+
+/* =========================================================
+   NUMBERS
+   ========================================================= */
+
+.background-number {
+    padding-top: 5px;
+
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+
+    line-height: 1;
+
+    color: var(--black);
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.background-details {
+    min-width: 0;
+}
+
+
+.background-type {
+    margin-bottom: 10px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.background-details h3 {
+    max-width: 560px;
+
+    margin-bottom: 16px;
+
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.background-course {
+    max-width: 420px;
+
+    font-size: 1.05rem;
+    line-height: 1.15;
+}
+
+
+.background-date {
+    margin-top: 14px;
+
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   EDUCATION LOGOS
+   ========================================================= */
+
+.education-logo {
+    width: 58px;
+    height: 58px;
+
+    align-self: start;
+
+    margin-top: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.72;
+}
+
+
+.education-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+
+    transition:
+        filter 0.25s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGO HOVER
+   ========================================================= */
+
+.background-item:hover .education-logo img {
+    filter: grayscale(0%);
+
+    opacity: 1;
+
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+}
+
+
+/* =========================================================
+   ITEM HOVER
+   ========================================================= */
+
+.background-item:hover {
+    padding-left: 8px;
+}
+
+
+.background-item:hover .background-number {
+    color: var(--orange);
+
+    transform: translateX(3px);
+}
+
+
+.background-item:hover .background-type {
+    opacity: 1;
+
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   SUBTLE TITLE ACCENT
+   ========================================================= */
+
+.background-item:hover .background-details h3 {
+    color: var(--black);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .background-content {
+        gap: 50px;
+    }
+
+
+    .background-item {
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            55px;
+
+        column-gap: 15px;
+    }
+
+
+    .education-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .background-item::before {
+        left: -10px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #background {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .background-intro {
+        margin-bottom: 55px;
+    }
+
+
+    .background-content {
+        grid-template-columns: 1fr;
+
+        gap: 65px;
+    }
+
+
+    .background-item {
+        min-height: 0;
+
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            50px;
+
+        column-gap: 12px;
+
+        padding: 25px 0;
+    }
+
+
+    .background-details h3 {
+        font-size: 2rem;
+    }
+
+
+    .education-logo {
+        width: 45px;
+        height: 45px;
+
+        margin-top: 5px;
+    }
+
+
+    .background-item::before {
+        left: -8px;
+    }
+
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+#skills {
+    position: relative;
+
+    min-height: 100vh;
+
+    color: var(--black);
+
+    padding-top: 120px;
+    padding-bottom: 100px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SKILLS INTRO
+   ========================================================= */
+
+.skills-intro {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 650px;
+
+    margin-bottom: 20px;
+}
+
+.skills-intro h2 {
+    margin-top: 14px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+}
+
+.skills-subtitle {
+    max-width: 450px;
+
+    margin-top: 22px;
+
+    font-size: 1.25rem;
+
+    line-height: 1.15;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   SKILLS SCENE
+   ========================================================= */
+
+.skills-scene {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    height: 620px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BAG
+   ========================================================= */
+
+.skills-bag {
+    position: absolute;
+
+    left: 50%;
+    bottom: -45px;
+
+    width: 560px;
+    height: 640px;
+
+    transform: translateX(-50%);
+
+    z-index: 4;
+
+    transition:
+        transform 0.45s ease;
+}
+
+.skills-bag img {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+
+/* =========================================================
+   CLOSED / OPEN BAG
+   ========================================================= */
+
+.bag-closed {
+    opacity: 1;
+}
+
+.bag-open {
+    opacity: 0;
+}
+
+
+/* =========================================================
+   HOVER — BAG OPENS
+   ========================================================= */
+
+.skills-scene:hover .bag-closed {
+    opacity: 0;
+}
+
+.skills-scene:hover .bag-open {
+    opacity: 1;
+}
+
+.skills-scene:hover .skills-bag {
+    transform:
+        translateX(-50%)
+        translateY(15px)
+        scale(1.03);
+}
+
+
+/* =========================================================
+   SKILL POP-OUT CARDS
+   ========================================================= */
+
+.skill-pop {
+    position: absolute;
+
+    z-index: 20;
+
+    width: 100px;
+    min-height: 105px;
+
+    padding: 12px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background-color: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid #E1E1E1;
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.07);
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(0deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+/* =========================================================
+   SKILL LOGOS
+   ========================================================= */
+
+.skill-pop img {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   SKILL NAMES
+   ========================================================= */
+
+.skill-pop span {
+    font-family: var(--font-body);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    text-align: center;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   POP-OUT POSITIONS
+   ========================================================= */
+
+
+/* -------------------------
+   TECH
+   ------------------------- */
+
+.skill-c {
+    left: 12%;
+    top: 230px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(-5deg);
+}
+
+.skill-cpp {
+    left: 23%;
+    top: 125px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(3deg);
+}
+
+.skill-html {
+    left: 35%;
+    top: 55px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(-2deg);
+}
+
+.skill-css {
+    left: 51%;
+    top: 65px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(4deg);
+}
+
+.skill-js {
+    left: 22%;
+    top: 350px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(-4deg);
+}
+
+.skill-powerbi {
+    left: 34%;
+    top: 300px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(2deg);
+}
+
+.skill-github {
+    left: 52%;
+    top: 315px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(-3deg);
+}
+
+
+/* -------------------------
+   CREATIVE
+   ------------------------- */
+
+.skill-canva {
+    right: 25%;
+    top: 125px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(3deg);
+}
+
+.skill-photo {
+    right: 14%;
+    top: 245px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(-4deg);
+}
+
+.skill-fashion {
+    right: 9%;
+    top: 105px;
+
+    transform:
+        translateY(70px)
+        scale(0.5)
+        rotate(5deg);
+}
+
+
+/* =========================================================
+   HOVER — SKILLS POP OUT
+   ========================================================= */
+
+.skills-scene:hover .skill-pop {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   INDIVIDUAL POP-OUT ANIMATIONS
+   ========================================================= */
+
+.skills-scene:hover .skill-c {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-5deg);
+
+    transition-delay: 0.05s;
+}
+
+.skills-scene:hover .skill-cpp {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(3deg);
+
+    transition-delay: 0.09s;
+}
+
+.skills-scene:hover .skill-html {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-2deg);
+
+    transition-delay: 0.13s;
+}
+
+.skills-scene:hover .skill-css {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(4deg);
+
+    transition-delay: 0.17s;
+}
+
+.skills-scene:hover .skill-js {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-4deg);
+
+    transition-delay: 0.21s;
+}
+
+.skills-scene:hover .skill-powerbi {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(2deg);
+
+    transition-delay: 0.25s;
+}
+
+.skills-scene:hover .skill-github {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-3deg);
+
+    transition-delay: 0.29s;
+}
+
+.skills-scene:hover .skill-canva {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(3deg);
+
+    transition-delay: 0.33s;
+}
+
+.skills-scene:hover .skill-photo {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(-4deg);
+
+    transition-delay: 0.37s;
+}
+
+.skills-scene:hover .skill-fashion {
+    transform:
+        translateY(0)
+        scale(1)
+        rotate(5deg);
+
+    transition-delay: 0.41s;
+}
+
+
+/* =========================================================
+   HOVER INSTRUCTION
+   ========================================================= */
+
+.skills-hint {
+    position: absolute;
+
+    left: 67%;
+    bottom: 260px;
+
+    z-index: 15;
+
+    font-family: var(--font-body);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    letter-spacing: 0.08em;
+
+    transform: rotate(-5deg);
+
+    transition:
+        opacity 0.25s ease;
+}
+
+.hint-arrow {
+    margin-top: 8px;
+
+    font-size: 1.6rem;
+
+    text-align: center;
+}
+
+
+.skills-scene:hover .skills-hint {
+    opacity: 0;
+}
+
+
+/* =========================================================
+   DECORATIVE NOTES
+   ========================================================= */
+
+.skills-note {
+    position: absolute;
+
+    z-index: 2;
+
+    font-family: var(--font-body);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    letter-spacing: 0.08em;
+}
+
+.skills-note-left {
+    left: 5%;
+    bottom: 120px;
+
+    transform: rotate(-7deg);
+}
+
+.skills-note-right {
+    right: 4%;
+    bottom: 125px;
+
+    transform: rotate(5deg);
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   DECORATIVE STARS
+   ========================================================= */
+
+.skills-star {
+    position: absolute;
+
+    z-index: 2;
+
+    font-size: 1.8rem;
+
+    opacity: 0.75;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.3s ease;
+}
+
+.star-one {
+    left: 17%;
+    top: 260px;
+}
+
+.star-two {
+    right: 19%;
+    top: 75px;
+}
+
+.star-three {
+    right: 8%;
+    bottom: 205px;
+}
+
+.skills-scene:hover .star-one {
+    transform:
+        translate(-10px, -8px)
+        rotate(25deg);
+}
+
+.skills-scene:hover .star-two {
+    transform:
+        translate(8px, -10px)
+        rotate(-20deg);
+}
+
+.skills-scene:hover .star-three {
+    transform:
+        translate(10px, 5px)
+        rotate(20deg);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .skills-scene {
+        height: 520px;
+    }
+
+
+    .skills-bag {
+        width: 600px;
+        height: 680px;
+
+        bottom: -100px;
+    }
+
+
+    .skill-pop {
+        width: 82px;
+        min-height: 88px;
+    }
+
+
+    .skill-pop img {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .skill-pop span {
+        font-size: 0.7rem;
+    }
+
+
+    .skills-note-left {
+        left: 3%;
+    }
+
+
+    .skills-note-right {
+        right: 2%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — NO HOVER
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #skills {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+
+
+    .skills-subtitle {
+        font-size: 1.1rem;
+    }
+
+
+    .skills-scene {
+        height: 650px;
+    }
+
+
+    .skills-bag {
+        width: 420px;
+        height: 500px;
+
+        bottom: 20px;
+    }
+
+
+    /*
+       Touch screens do not have hover,
+       so the skill cards remain visible.
+    */
+
+    .skill-pop {
+        opacity: 1;
+
+        pointer-events: auto;
+
+        transform:
+            translateY(0)
+            scale(0.8)
+            rotate(0deg);
+    }
+
+
+    .skills-hint {
+        display: none;
+    }
+
+
+    /* -------------------------
+       Decorative notes
+       ------------------------- */
+
+    .skills-note-left {
+        left: 5%;
+        top: 80px;
+    }
+
+    .skills-note-right {
+        right: 5%;
+        bottom: 20px;
+    }
+
+
+    /* -------------------------
+       Skill positions
+       ------------------------- */
+
+    .skill-c {
+        left: 2%;
+        top: 150px;
+    }
+
+    .skill-cpp {
+        left: 25%;
+        top: 105px;
+    }
+
+    .skill-html {
+        left: 50%;
+        top: 95px;
+    }
+
+    .skill-css {
+        right: 2%;
+        left: auto;
+        top: 140px;
+    }
+
+    .skill-js {
+        left: 5%;
+        top: 270px;
+    }
+
+    .skill-powerbi {
+        left: 27%;
+        top: 240px;
+    }
+
+    .skill-github {
+        right: 4%;
+        left: auto;
+        top: 265px;
+    }
+
+    .skill-canva {
+        left: 5%;
+        right: auto;
+        top: 365px;
+    }
+
+    .skill-photo {
+        left: 30%;
+        right: auto;
+        top: 350px;
+    }
+
+    .skill-fashion {
+        right: 5%;
+        top: 375px;
+    }
+
+
+    /* -------------------------
+       Hide decorative stars
+       ------------------------- */
+
+    .skills-star {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+#certifications {
+    position: relative;
+
+    min-height: 100vh;
+
+    color: var(--black);
+
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.certifications-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    margin-bottom: 70px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.certifications-title {
+    max-width: 650px;
+}
+
+.certifications-title h2 {
+    margin-top: 14px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -0.055em;
+}
+
+
+/* =========================================================
+   CERTIFICATION COUNT
+   ========================================================= */
+
+.certifications-count {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 8px;
+
+    white-space: nowrap;
+}
+
+
+.count-number {
+    font-family: var(--font-display);
+
+    font-size: 4rem;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.06em;
+
+    color: var(--orange);
+}
+
+
+.count-number-small {
+    font-family: var(--font-display);
+
+    font-size: 2.2rem;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.05em;
+}
+
+
+.count-label {
+    max-width: 65px;
+
+    font-family: var(--font-body);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    letter-spacing: 0.1em;
+}
+
+
+.count-divider {
+    width: 1px;
+    height: 45px;
+
+    margin: 0 8px;
+
+    background-color: var(--black);
+}
+
+
+/* =========================================================
+   SLIDER
+   ========================================================= */
+
+.certification-slider {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 520px;
+}
+
+
+/* =========================================================
+   HIDDEN RADIO BUTTONS
+   ========================================================= */
+
+.certification-slider > input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CERTIFICATION SLIDES
+   ========================================================= */
+
+.certification-slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    min-height: 500px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 0.8fr)
+        minmax(400px, 1.4fr);
+
+    align-items: center;
+
+    gap: 70px;
+
+    /*
+       IMPORTANT:
+       This creates space on both sides
+       specifically for the arrows.
+    */
+
+    padding: 0 90px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateX(35px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.5s ease;
+}
+
+
+/* =========================================================
+   ACTIVE SLIDE
+   ========================================================= */
+
+#cert-1:checked ~ .cert-slide-1,
+#cert-2:checked ~ .cert-slide-2,
+#cert-3:checked ~ .cert-slide-3,
+#cert-4:checked ~ .cert-slide-4 {
+
+    position: relative;
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   CERTIFICATION INFORMATION
+   ========================================================= */
+
+.certification-info {
+    position: relative;
+
+    padding-left: 25px;
+
+    border-left: 3px solid var(--orange);
+}
+
+
+/* =========================================================
+   INDEX
+   ========================================================= */
+
+.certification-index {
+    margin-bottom: 35px;
+
+    color: var(--orange);
+
+    font-family: var(--font-display);
+
+    font-size: 0.85rem;
+
+    line-height: 1;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   PROVIDER
+   ========================================================= */
+
+.certification-provider {
+    margin-bottom: 12px;
+
+    font-family: var(--font-body);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   CERTIFICATION TITLE
+   ========================================================= */
+
+.certification-info h3 {
+    max-width: 430px;
+
+    margin-bottom: 25px;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(2.4rem, 4vw, 4.5rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.055em;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.certification-date {
+    margin-bottom: 25px;
+
+    font-size: 1.05rem;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.certification-status {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border: 1px solid var(--orange);
+
+    color: var(--orange);
+
+    font-family: var(--font-body);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   IN PROGRESS STATUS
+   ========================================================= */
+
+.certification-progress {
+    background-color: var(--orange);
+
+    border-color: var(--orange);
+
+    color: var(--white);
+}
+
+
+/* =========================================================
+   CERTIFICATE DISPLAY
+   ========================================================= */
+
+.certificate-display {
+    position: relative;
+
+    width: 100%;
+    max-width: 720px;
+
+    height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background-color: #F2F2F2;
+
+    box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.06);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CERTIFICATE IMAGE
+   ========================================================= */
+
+.certificate-display img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.certificate-display:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================================
+   ORANGE ACCENT
+   ========================================================= */
+
+.certificate-accent {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background-color: var(--orange);
+}
+
+
+/* =========================================================
+   IN-PROGRESS CARD
+   ========================================================= */
+
+.certificate-learning {
+    background-color: var(--black);
+
+    box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   IN-PROGRESS OVERLAY
+   ========================================================= */
+
+.learning-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+.learning-overlay span {
+    padding: 10px 15px;
+
+    border: 1px solid var(--orange);
+
+    background-color: var(--orange);
+
+    color: var(--white);
+
+    font-family: var(--font-body);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.cert-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--black);
+
+    background-color: var(--white);
+
+    color: var(--black);
+
+    font-family: var(--font-body);
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   ARROW POSITION
+   ========================================================= */
+
+.cert-prev {
+    left: 12px;
+}
+
+
+.cert-next {
+    right: 12px;
+}
+
+
+/* =========================================================
+   ARROW HOVER
+   ========================================================= */
+
+.cert-prev:hover,
+.cert-next:hover {
+    background-color: var(--orange);
+
+    border-color: var(--orange);
+
+    color: var(--white);
+
+    transform:
+        translateY(-50%)
+        scale(1.06);
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.certification-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: -45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    transform: translateX(-50%);
+}
+
+
+.certification-dots label {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background-color: #CFCFCF;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   ACTIVE DOT
+   ========================================================= */
+
+#cert-1:checked ~ .certification-dots label:nth-child(1),
+#cert-2:checked ~ .certification-dots label:nth-child(2),
+#cert-3:checked ~ .certification-dots label:nth-child(3),
+#cert-4:checked ~ .certification-dots label:nth-child(4) {
+
+    background-color: var(--orange);
+
+    transform: scale(1.6);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .certifications-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+
+    .certification-slide {
+        grid-template-columns:
+            minmax(220px, 0.75fr)
+            minmax(350px, 1.25fr);
+
+        gap: 40px;
+
+        padding: 0 65px;
+    }
+
+
+    .certificate-display {
+        height: 380px;
+    }
+
+
+    .certification-info h3 {
+        font-size:
+            clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+
+    .cert-prev {
+        left: 5px;
+    }
+
+
+    .cert-next {
+        right: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #certifications {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .certifications-header {
+        margin-bottom: 45px;
+    }
+
+
+    .certifications-title h2 {
+        font-size:
+            clamp(2.8rem, 12vw, 4rem);
+    }
+
+
+    .certifications-count {
+        align-self: flex-start;
+    }
+
+
+    .count-number {
+        font-size: 3rem;
+    }
+
+
+    .count-number-small {
+        font-size: 1.8rem;
+    }
+
+
+    .certification-slider {
+        min-height: 680px;
+    }
+
+
+    .certification-slide {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        min-height: 650px;
+
+        align-content: start;
+
+        padding: 0 45px;
+    }
+
+
+    .certification-info {
+        padding-left: 18px;
+    }
+
+
+    .certification-index {
+        margin-bottom: 20px;
+    }
+
+
+    .certification-info h3 {
+        font-size:
+            clamp(2.2rem, 10vw, 3.3rem);
+    }
+
+
+    .certificate-display {
+        width: 100%;
+
+        height: 280px;
+
+        padding: 15px;
+    }
+
+
+    .cert-arrow {
+        width: 42px;
+        height: 42px;
+
+        font-size: 1.2rem;
+    }
+
+
+    .cert-prev {
+        left: 0;
+    }
+
+
+    .cert-next {
+        right: 0;
+    }
+
+
+    .certification-dots {
+        bottom: -35px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #certifications {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+
+
+    .certifications-header {
+        margin-bottom: 45px;
+    }
+
+
+    .certifications-title h2 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+    }
+
+
+    .certifications-count {
+        align-self: flex-start;
+    }
+
+
+    .count-number {
+        font-size: 3rem;
+    }
+
+
+    .count-number-small {
+        font-size: 1.8rem;
+    }
+
+
+    .certification-slider {
+        min-height: 650px;
+    }
+
+
+    .certification-slide {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        min-height: 650px;
+
+        align-content: start;
+
+        padding-top: 10px;
+    }
+
+
+    .certification-info {
+        padding-left: 18px;
+    }
+
+
+    .certification-index {
+        margin-bottom: 20px;
+    }
+
+
+    .certification-info h3 {
+        font-size: clamp(2.2rem, 10vw, 3.3rem);
+    }
+
+
+    .certificate-display {
+        width: 100%;
+
+        height: 280px;
+
+        padding: 15px;
+    }
+
+
+    .cert-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .cert-prev {
+        left: -5px;
+
+        transform: translate(-10%, -50%);
+    }
+
+
+    .cert-next {
+        right: -5px;
+
+        transform: translate(10%, -50%);
+    }
+
+
+    .cert-prev:hover {
+        transform: translate(-10%, -50%) scale(1.05);
+    }
+
+
+    .cert-next:hover {
+        transform: translate(10%, -50%) scale(1.05);
+    }
+
+
+    .certification-dots {
+        bottom: -35px;
+    }
+
+}
+
+/* =========================================================
+   LET'S CONNECT
+   ========================================================= */
+
+#contact {
+    position: relative;
+
+    min-height: 100vh;
+
+    color: var(--black);
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+   ========================================================= */
+
+.contact-content {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 60px;
+
+    width: 100%;
+    min-height: 700px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   CONTACT LEFT
+   ========================================================= */
+
+.contact-left {
+    position: relative;
+
+    z-index: 5;
+
+    align-self: start;
+}
+
+
+/* =========================================================
+   CONTACT TITLE
+   ========================================================= */
+
+.contact-left h2 {
+    margin-top: 14px;
+
+    font-size: clamp(4rem, 7vw, 7rem);
+
+    line-height: 0.84;
+
+    letter-spacing: -0.06em;
+}
+
+
+/* =========================================================
+   CONTACT INTRO
+   ========================================================= */
+
+.contact-intro {
+    max-width: 500px;
+
+    margin-top: 32px;
+
+    font-size: 1.35rem;
+
+    line-height: 1.15;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+   ========================================================= */
+
+.contact-socials {
+    width: min(100%, 570px);
+
+    margin-top: 55px;
+
+    border-top: 1px solid #D8D8D8;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SOCIAL LINK
+   ========================================================= */
+
+.contact-social {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 82px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #D8D8D8;
+
+    color: var(--black);
+
+    text-decoration: none;
+
+    transition:
+        padding-left 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+   ========================================================= */
+
+.contact-social-icon {
+    width: 45px;
+    height: 45px;
+
+    margin-right: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* IMPORTANT:
+       No box, no border, no background.
+    */
+    background: transparent;
+    border: none;
+}
+
+
+.contact-social-icon img {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   SOCIAL TEXT
+   ========================================================= */
+
+.contact-social-text {
+    display: flex;
+    align-items: center;
+}
+
+
+.contact-social-text span {
+    font-family: var(--font-body);
+
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    color: var(--orange);
+
+    transition:
+        color 0.25s ease,
+        letter-spacing 0.25s ease;
+}
+
+
+/* =========================================================
+   SOCIAL ARROW
+   ========================================================= */
+
+.contact-arrow {
+    margin-left: auto;
+
+    padding-right: 3px;
+
+    font-size: 1.2rem;
+
+    color: var(--black);
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================================
+   SOCIAL HOVER
+   ========================================================= */
+
+.contact-social:hover {
+    padding-left: 8px;
+}
+
+
+.contact-social:hover .contact-social-icon img {
+    transform: scale(1.12);
+}
+
+
+.contact-social:hover .contact-social-text span {
+    color: var(--black);
+
+    letter-spacing: 0.16em;
+}
+
+
+.contact-social:hover .contact-arrow {
+    color: var(--orange);
+
+    transform: translate(4px, -4px);
+}
+
+
+/* =========================================================
+   CONTACT DETAILS
+   ========================================================= */
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 48px;
+}
+
+
+/* -------------------------
+   Contact Detail Label
+   ------------------------- */
+
+.contact-detail-label {
+    margin-bottom: 15px;
+
+    font-family: var(--font-body);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    opacity: 0.55;
+}
+
+
+/* -------------------------
+   Contact Detail Links
+   ------------------------- */
+
+.contact-details a {
+    width: fit-content;
+
+    margin-bottom: 8px;
+
+    color: var(--black);
+
+    font-size: 1rem;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    transition:
+        color 0.2s ease,
+        text-underline-offset 0.2s ease;
+}
+
+
+.contact-details a:hover {
+    color: var(--orange);
+
+    text-underline-offset: 6px;
+}
+
+
+/* =========================================================
+   CONTACT VISUAL
+   ========================================================= */
+
+.contact-visual {
+    position: relative;
+
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CONTACT IMAGE
+   ========================================================= */
+
+.contact-visual > img {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: min(700px, 100%);
+
+    max-height: 700px;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+
+    /*
+       This is what removes the abrupt rectangular cutoff.
+
+       The image stays visible through most of the body,
+       then gradually fades into the white background.
+    */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 72%,
+        rgba(0, 0, 0, 0.85) 82%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 72%,
+        rgba(0, 0, 0, 0.85) 82%,
+        transparent 100%
+    );
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+.contact-visual:hover > img {
+    transform:
+        translateX(-50%)
+        scale(1.015);
+}
+
+
+/* =========================================================
+   CONTACT VISUAL NOTE
+   ========================================================= */
+
+.contact-visual-note {
+    position: absolute;
+
+    right: 2%;
+    bottom: 110px;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font-body);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    line-height: 1.05;
+
+    letter-spacing: 0.08em;
+
+    color: var(--orange);
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   DECORATIVE STARS
+   ========================================================= */
+
+.contact-star {
+    position: absolute;
+
+    z-index: 6;
+
+    font-size: 1.6rem;
+
+    color: var(--black);
+
+    transition:
+        transform 0.35s ease,
+        color 0.25s ease;
+}
+
+
+.star-contact-one {
+    left: 43%;
+    top: 25%;
+}
+
+
+.star-contact-two {
+    right: 3%;
+    top: 43%;
+
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   STAR HOVER
+   ========================================================= */
+
+.contact-visual:hover .star-contact-one {
+    color: var(--orange);
+
+    transform:
+        translate(-4px, -5px)
+        rotate(20deg);
+}
+
+
+.contact-visual:hover .star-contact-two {
+    transform:
+        translate(5px, -5px)
+        rotate(-20deg);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    #contact {
+        padding-top: 100px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+    }
+
+    .contact-left h2 {
+        font-size: clamp(3.5rem, 7vw, 5.5rem);
+    }
+
+    .contact-intro {
+        font-size: 1.2rem;
+    }
+
+    .contact-visual {
+        height: 600px;
+    }
+
+    .contact-visual > img {
+        width: 110%;
+    }
+
+    .contact-visual-note {
+        right: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #contact {
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        min-height: auto;
+    }
+
+
+    /* -------------------------
+       Left
+       ------------------------- */
+
+    .contact-left h2 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+
+    .contact-intro {
+        max-width: 380px;
+
+        margin-top: 25px;
+
+        font-size: 1.15rem;
+    }
+
+
+    /* -------------------------
+       Socials
+       ------------------------- */
+
+    .contact-socials {
+        margin-top: 40px;
+    }
+
+    .contact-social {
+        min-height: 70px;
+    }
+
+    .contact-social-icon {
+        width: 40px;
+        height: 40px;
+
+        margin-right: 13px;
+    }
+
+    .contact-social-icon img {
+        width: 27px;
+        height: 27px;
+    }
+
+    .contact-social-text span {
+        font-size: 1rem;
+    }
+
+
+    /* -------------------------
+       Details
+       ------------------------- */
+
+    .contact-details {
+        margin-top: 38px;
+    }
+
+
+    /* -------------------------
+       Visual
+       ------------------------- */
+
+    .contact-visual {
+        height: 500px;
+
+        margin-top: 10px;
+    }
+
+    .contact-visual > img {
+        width: 115%;
+
+        max-height: 520px;
+    }
+
+    .contact-visual-note {
+        right: 3%;
+        bottom: 70px;
+
+        font-size: 0.7rem;
+    }
+
+    .star-contact-one {
+        left: 15%;
+        top: 15%;
+    }
+
+    .star-contact-two {
+        right: 8%;
+        top: 35%;
+    }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    position: relative;
+
+    width: 100%;
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 55px 7vw;
+
+    background-color: var(--black);
+    color: var(--off-white);
+
+    border-top: 1px solid var(--orange);
+}
+
+
+/* -------------------------
+   Footer Text
+   ------------------------- */
+
+footer p,
+footer span {
+    margin: 0;
+
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+}
+
+footer span {
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   FOOTER — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    footer {
+        min-height: 150px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        gap: 15px;
+
+        padding: 45px 6vw;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    nav {
+        padding: 18px 50px;
+    }
+
+    nav .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+
+    .social-links {
+        gap: 14px;
+        margin-left: 30px;
+    }
+
+    .social-links img {
+        width: 25px;
+        height: 25px;
+    }
+
+    section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .about-card {
+        flex-basis: 75vw;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 14px 22px;
+    }
+
+    nav .logo img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .social-links {
+        margin-left: auto;
+        gap: 12px;
+    }
+
+    .social-links img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    section {
+        padding: 80px 6vw;
+    }
+
+
+    #home {
+        padding-top: 100px;
+    }
+
+
+    #about {
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+
+    .about-intro {
+        margin-bottom: 45px;
+    }
+
+
+    .about-intro h2 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+    }
+
+
+    .about-statement {
+        font-size: 1.25rem;
+    }
+
+
+    .about-card {
+        flex-basis: 86vw;
+
+        min-height: 420px;
+
+        padding: 28px;
+    }
+
+
+    .about-card h3 {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+    }
+
+
+    .about-card .card-content > p {
+        font-size: 1rem;
+    }
+
+
+    .carousel-hint {
+        margin-top: 15px;
+    }
+}
+
+/* =========================================================
+   CUSTOM CURSOR
+   ========================================================= */
+
+* {
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.custom-cursor::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Cursor when hovering clickable elements */
+
+.custom-cursor.hover {
+    width: 52px;
+    height: 52px;
+    border-color: var(--orange);
+    background-color: rgba(201, 104, 69, 0.05);
+}
+
+/* =========================================================
+   TEXT HIGHLIGHT
+   ========================================================= */
+
+::selection {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+
+/* =========================================================
+   SMOOTH SCROLLING
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+    * {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+}
+
+/* =========================================================
+   FINAL DESIGN POLISH
+   ========================================================= */
+
+/* Keep the overall page rhythm consistent. */
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* Give the main content a little more breathing room. */
+.about-intro,
+.background-intro,
+.skills-intro {
+    margin-bottom: 70px;
+}
+
+/* Keep section labels visually consistent. */
+.section-label,
+.background-label,
+.card-label,
+.certification-provider,
+.contact-detail-label {
+    line-height: 1.1;
+}
+
+/* Refine the navigation spacing without changing its structure. */
+nav {
+    padding: 18px 7vw;
+}
+
+.nav-links {
+    gap: 32px;
+}
+
+.social-links {
+    gap: 17px;
+    margin-left: 42px;
+}
+
+/* Keep the hero balanced against the fixed navigation. */
+.hero-content {
+    top: 44%;
+}
+
+.hero-portrait {
+    right: 11vw;
+    top: 48%;
+}
+
+/* Keep the hero circle formal and neutral. */
+.hero-portrait {
+    border-color: #D8D8D8;
+    background-color: #F4F4F4;
+}
+
+/* Improve the spacing between major About elements. */
+.about-intro {
+    margin-bottom: 72px;
+}
+
+.about-carousel {
+    padding-top: 12px;
+}
+
+/* Give the Background columns a little more editorial breathing room. */
+.background-content {
+    gap: 80px;
+}
+
+.background-label {
+    margin-bottom: 28px;
+}
+
+/* Make individual background entries feel less crowded. */
+.background-item {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+/* Give the Skills section a little more separation from its title. */
+.skills-intro {
+    margin-bottom: 34px;
+}
+
+.skills-scene {
+    margin-top: 10px;
+}
+
+/* Give the Certifications header and slider a cleaner relationship. */
+.certifications-header {
+    margin-bottom: 64px;
+}
+
+/* Keep contact spacing generous but controlled. */
+.contact-intro {
+    margin-top: 28px;
+}
+
+.contact-socials {
+    margin-top: 48px;
+}
+
+.contact-details {
+    margin-top: 42px;
+}
+
+/* Keep the footer visually separated from the page. */
+footer {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+/* Subtle consistency for interactive movement. */
+.nav-links a,
+.social-links img,
+.about-card,
+.background-item,
+.contact-social,
+.hero-star,
+.skills-star,
+.education-logo img {
+    will-change: transform;
+}
+
+/* Keep text selection orange throughout the site. */
+::selection {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+/* Keep the custom cursor above every visual layer. */
+.custom-cursor {
+    z-index: 99999;
+}
+
+/* =========================================================
+   PAGE LOAD ANIMATION
+   ========================================================= */
+
+body {
+    animation: pageFadeIn 0.8s ease forwards;
+}
+
+nav {
+    animation: navReveal 1s ease 0.1s both;
+}
+
+.hero-content {
+    animation: heroTextReveal 1.2s ease 0.2s both;
+}
+
+.hero-portrait {
+    animation: heroImageReveal 1.3s ease 0.3s both;
+}
+
+.hero-star {
+    animation: starReveal 1s ease 0.7s both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes navReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroTextReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroImageReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes starReveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    nav,
+    .hero-content,
+    .hero-portrait,
+    .hero-star {
+        animation: none;
+    }
+}
+
+/* =========================================================
+   NAV DROP-IN ANIMATION
+   ========================================================= */
+
+nav {
+    animation: navDropIn 1s cubic-bezier(.22, 1, .36, 1) 0.1s both;
+}
+
+@keyframes navDropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

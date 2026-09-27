@@ -3682,7 +3682,68 @@ section {
         transform 0.4s ease;
 }
 
+/* =========================================================
+   DOWNLOAD CV
+   ========================================================= */
 
+.download-cv {
+    width: min(100%, 570px);
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #D8D8D8;
+
+    color: var(--black);
+    text-decoration: none;
+
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    transition:
+        padding-left 0.25s ease,
+        color 0.25s ease;
+}
+
+.download-cv:hover {
+    padding-left: 10px;
+    color: var(--orange);
+}
+
+.download-cv-arrow {
+    margin-left: auto;
+
+    font-size: 1.2rem;
+    letter-spacing: 0;
+
+    transition: transform 0.25s ease;
+}
+
+.download-cv:hover .download-cv-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   DOWNLOAD CV — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .download-cv {
+        width: 100%;
+        min-height: 70px;
+
+        font-size: 1rem;
+    }
+
+}
 /* =========================================================
    IMAGE HOVER
    ========================================================= */
@@ -4600,8 +4661,6 @@ nav {
         height: 34px;
     }
 
-    /* Keep the existing navigation usable until the
-       hamburger menu is added in the next step. */
     .nav-links {
         gap: 13px;
     }

@@ -4448,3 +4448,353 @@ nav {
     }
 }
 
+
+/* =========================================================
+   RESPONSIVE HOME / OPENING — MOBILE + TABLET FIX
+   ========================================================= */
+
+/* Prevent fixed/sticky hero layering from causing overlap on
+   smaller screens. Desktop layout remains unchanged. */
+@media (max-width: 900px) {
+
+    nav {
+        padding: 14px 5vw;
+    }
+
+    nav .logo img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 10px;
+        margin-left: 20px;
+    }
+
+    .social-links img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .theme-toggle {
+        margin-left: 12px;
+    }
+
+    .theme-toggle button {
+        width: 30px;
+        height: 30px;
+    }
+
+    #home {
+        position: relative;
+        height: auto;
+        min-height: 100svh;
+        overflow: hidden;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 100svh;
+        padding: 100px 6vw 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        transform: none;
+        z-index: 5;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(4rem, 11vw, 7rem);
+        line-height: 0.82;
+    }
+
+    .hero-content h1 span {
+        margin-left: 6vw;
+    }
+
+    .hero-description {
+        max-width: 360px;
+        margin-top: 28px;
+        margin-left: 6vw;
+        font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    }
+
+    .hero-portrait {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        flex: 0 0 auto;
+        width: min(55vw, 390px);
+        height: min(55vw, 390px);
+        margin: 55px auto 0;
+    }
+
+    .hero-portrait img {
+        width: 108%;
+        height: 108%;
+    }
+
+    .hero-label-side,
+    .hero-note {
+        display: none;
+    }
+
+    .hero-label-top {
+        top: 72px;
+        left: 6vw;
+    }
+
+    .hero-star-one {
+        left: 52%;
+        top: 24%;
+    }
+
+    .hero-star-two {
+        right: 7%;
+        top: 18%;
+    }
+
+    .hero-star-three {
+        right: 15%;
+        bottom: 10%;
+    }
+
+    .hero-bottom {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    /* -------------------------
+       Mobile navigation sizing
+       ------------------------- */
+
+    nav {
+        padding: 12px 5vw;
+    }
+
+    nav .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Keep the existing navigation usable until the
+       hamburger menu is added in the next step. */
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 0.78rem;
+    }
+
+    .social-links {
+        gap: 7px;
+        margin-left: 12px;
+    }
+
+    .social-links img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-toggle {
+        margin-left: 8px;
+    }
+
+    .theme-toggle button {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    /* -------------------------
+       Mobile opening section
+       ------------------------- */
+
+    #home {
+        min-height: auto;
+    }
+
+    .hero {
+        min-height: 100svh;
+        padding: 92px 6vw 38px;
+        justify-content: flex-start;
+    }
+
+    .hero-label-top {
+        top: 60px;
+        left: 6vw;
+        gap: 10px;
+        font-size: 0.62rem;
+    }
+
+    .hero-content {
+        margin-top: 48px;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 14px;
+        font-size: 0.68rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(3.5rem, 16vw, 5.5rem);
+        line-height: 0.84;
+        letter-spacing: -0.07em;
+    }
+
+    .hero-content h1 span {
+        margin-left: 7vw;
+    }
+
+    .hero-description {
+        max-width: 280px;
+        margin-top: 22px;
+        margin-left: 7vw;
+        font-size: 1.05rem;
+        line-height: 1.15;
+    }
+
+    .hero-portrait {
+        width: min(72vw, 320px);
+        height: min(72vw, 320px);
+        margin: 42px auto 0;
+    }
+
+    .hero-portrait img {
+        width: 110%;
+        height: 110%;
+    }
+
+    .hero-star-one {
+        left: auto;
+        right: 23%;
+        top: 31%;
+        font-size: 1.15rem;
+    }
+
+    .hero-star-two {
+        right: 8%;
+        top: 17%;
+        font-size: 1.35rem;
+    }
+
+    .hero-star-three {
+        right: 16%;
+        bottom: 13%;
+        font-size: 0.85rem;
+    }
+
+    .hero-bottom {
+        margin-top: 38px;
+        padding-top: 11px;
+        font-size: 0.62rem;
+    }
+}
+
+/* =========================================================
+   TABLET 
+   ========================================================= */
+
+@media (min-width: 701px) and (max-width: 1000px) {
+
+    .certification-slider {
+        min-height: 700px;
+    }
+
+    .certification-slide {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        min-height: 700px;
+        padding: 20px 70px 60px;
+        align-content: start;
+    }
+
+    .certification-info {
+        width: 100%;
+        max-width: 600px;
+        padding-left: 20px;
+    }
+
+    .certification-info h3 {
+        max-width: 600px;
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+        line-height: 0.9;
+    }
+
+    .certificate-display {
+        width: 100%;
+        max-width: 650px;
+        height: 360px;
+        margin: 0 auto;
+    }
+
+    .cert-prev {
+        left: 10px;
+    }
+
+    .cert-next {
+        right: 10px;
+    }
+
+}
+
+/* =========================================================
+   SMALL PHONE 
+   ========================================================= */
+@media (max-width: 390px) {
+
+    .hero {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(3.1rem, 15vw, 4.5rem);
+    }
+
+    .hero-description {
+        max-width: 245px;
+        font-size: 1rem;
+    }
+
+    .hero-portrait {
+        width: min(76vw, 290px);
+        height: min(76vw, 290px);
+        margin-top: 36px;
+    }
+
+    .hero-bottom {
+        font-size: 0.57rem;
+    }
+}
+
+@media (hover: none) {
+    .hero:hover .hero-content h1,
+    .hero-portrait:hover img {
+        transform: none;
+    }
+}

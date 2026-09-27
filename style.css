@@ -4857,3 +4857,83 @@ nav {
         transform: none;
     }
 }
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+.back-to-top {
+    position: fixed;
+    right: 32px;
+    bottom: 28px;
+
+    padding: 10px 0;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--black);
+
+    color: var(--black);
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+
+/* =========================================================
+   BACK TO TOP — DARK MODE
+   ========================================================= */
+
+body.dark-mode .back-to-top {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+body.dark-mode .back-to-top:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+
+/* =========================================================
+   BACK TO TOP — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        font-size: 0.8rem;
+    }
+
+}
